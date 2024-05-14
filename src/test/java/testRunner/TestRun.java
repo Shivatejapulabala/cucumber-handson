@@ -7,8 +7,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		            features = {".//FeatureFiles/Login.feature"}, 
-                    glue = "stepDefinitions" 
+		            features = {".//FeatureFiles/ClickCounterFunctionality.feature"},
+		            glue = "stepDefinitions"
+                    
                     
 		        )
 

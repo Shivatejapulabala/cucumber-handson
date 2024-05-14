@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -49,13 +50,18 @@ public class LoginSteps {
 
 	@Then("the user should see a welcome message")
 	public void the_user_should_see_a_welcome_message() {
-	    
+	    try {
 		boolean welcomestatus=driver.findElement(By.xpath("//h2[normalize-space()='Welcome to our store']")).isDisplayed();
-		Assert.assertEquals(welcomestatus, true);
+		if(welcomestatus == true){
+		Assert.assertTrue(true);
+		}
+		else {
+			Assert.fail();
+		}
+	} catch(Exception e) {
 		driver.quit();
+		Assert.fail();
 	}
-
-
-
-
+	}
+	
 }
